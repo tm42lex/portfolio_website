@@ -37,35 +37,37 @@ class _HamburgerButton extends State<HamburgerButton> with SingleTickerProviderS
          color: widget.themeData.canvasColor,
        ),
      ),
-     child: AnimatedBuilder(
-       animation: _controller,
-       builder: (context, _) {
-         return Transform.rotate(
-           angle: _controller.value * math.pi / 2,
-           child: ClipOval(
-             child: MaterialButton(
-               highlightColor: Colors.transparent,
-               focusColor:     Colors.transparent,
-               hoverColor:     Colors.transparent,
-               splashColor:    Colors.transparent,
-               color:          widget.themeData.backgroundColor,
-               child:Icon(
-                   FontAwesomeIcons.bars,
-                   color: widget.themeData.canvasColor,
-                 ),
-               onPressed: () {
-                 if (! _controller.isAnimating) {
-                   context.read(drawerOpacityStateNotifier).switchOnOff();
-                   if (_controller.value == 0)
-                     _controller.forward(from: 0);
-                   else
-                     _controller.reverse(from: fixedDuration.inMilliseconds + 0.0);
-                 }
-               },
+     child: Center(
+       child: AnimatedBuilder(
+         animation: _controller,
+         builder: (context, _) {
+           return Transform.rotate(
+             angle: _controller.value * math.pi / 2,
+             child: ClipOval(
+               child: MaterialButton(
+                 highlightColor: Colors.transparent,
+                 focusColor:     Colors.transparent,
+                 hoverColor:     Colors.transparent,
+                 splashColor:    Colors.transparent,
+                 color:          widget.themeData.backgroundColor,
+                 child:Icon(
+                     FontAwesomeIcons.bars,
+                     color: widget.themeData.canvasColor,
+                   ),
+                 onPressed: () {
+                   if (! _controller.isAnimating) {
+                     context.read(drawerOpacityStateNotifier).switchOnOff();
+                     if (_controller.value == 0)
+                       _controller.forward(from: 0);
+                     else
+                       _controller.reverse(from: fixedDuration.inMilliseconds + 0.0);
+                   }
+                 },
+               ),
              ),
-           ),
-         );
-       }
+           );
+         }
+       ),
      ),
    );
   }

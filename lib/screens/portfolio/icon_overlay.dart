@@ -12,6 +12,7 @@ class IconOverlay extends StatefulWidget {
   IconOverlay({this.githubUrl, this.appStoreUrl, this.googlePlayUrl, this.theme, Key key})  : super(key : key);
 
   final Duration fixedDuration = const Duration(milliseconds: 420);
+
   @override
   _IconOverlay createState()=>  _IconOverlay();
 }
@@ -21,15 +22,17 @@ class _IconOverlay extends State<IconOverlay>  {
   bool    enableAppStore;
   bool    enableGooglePlay;
   bool    enableGithub;
+  bool    isTapping;
   double  screenOpacity;
 
   @override
   void initState() {
     super.initState();
     enableAppStore    = (widget.appStoreUrl   != null);
-    enableGooglePlay = (widget.googlePlayUrl != null);
+    enableGooglePlay  = (widget.googlePlayUrl != null);
     enableGithub      = (widget.githubUrl     != null);
     screenOpacity     = 0.0;
+    isTapping         = false;
   }
 
   @override
@@ -40,14 +43,22 @@ class _IconOverlay extends State<IconOverlay>  {
       color: widget.theme.backgroundColor.withOpacity(screenOpacity),
       child: InkWell(
         onTap: () {
-          return ;
+          setState(() {
+            if (!isTapping) {
+              screenOpacity = .75;
+              isTapping = true;
+            } else {
+              screenOpacity = 0;
+              isTapping = false;
+            }
+          });
         },
         onHover: (isHovering) {
           if(isHovering) {
             setState(() {
               screenOpacity = .75;
             });
-          } else {
+          } else if (!isHovering && !isTapping){
             setState(() {
               screenOpacity = 0;
             });
