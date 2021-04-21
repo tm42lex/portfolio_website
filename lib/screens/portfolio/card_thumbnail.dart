@@ -9,15 +9,7 @@ class CardThumbnail extends StatelessWidget {
    return  Container(
       height:   150,
       width:   150,
-      // decoration: BoxDecoration(
-      //   shape: BoxShape.circle,
-      //   image: DecorationImage(
-      //     image: AssetImage(imagePath),
-      //     alignment: Alignment.center,
-      //     fit: BoxFit.cover,
-      //   ),
-      // ),
-
+      child: ClipOval(child: Image.network('assets/$imagePath')),
     );
   }
 }

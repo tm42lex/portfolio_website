@@ -8,14 +8,15 @@ class SelfieContainer extends StatelessWidget {
     return Container(
       height: 270,
       width: 270,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        image: DecorationImage(
-          image: AssetImage("images/selfie.jpg"),
-          alignment: Alignment.center,
-          fit: BoxFit.cover,
-        ),
-      ),
+      child: ClipOval(child: Image.network('assets/images/selfie.jpg')),
+      // decoration: BoxDecoration(
+      //   shape: BoxShape.circle,
+      //   image: DecorationImage(
+      //     image: AssetImage("images/selfie.jpg"),
+      //     alignment: Alignment.center,
+      //     fit: BoxFit.cover,
+      //   ),
+      // ),
     );
   }
 }
