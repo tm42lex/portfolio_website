@@ -82,4 +82,6 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   assets :
-    - assets/
+    - assets/pomogtd_icon_thumbnail.png
+    - assets/portfolio_thumbnail.png
+    - assets/selfie.jpg
