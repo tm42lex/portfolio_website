@@ -1,0 +1,4 @@
+enum DarkLightMode {
+  light,
+  dark,
+}
