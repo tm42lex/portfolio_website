@@ -44,7 +44,7 @@ const githubURL             =  "https://www.google.com/";
 
 ///PORTFOLIO :
 const portfolioSiteTitle        = "ポートフォリオ";
-const portfolioSiteImagePath    = "portfolio_thumbnail.png";
+const portfolioSiteImagePath    = "assets/portfolio_thumbnail.png";
 const portfolioSiteDescription  = "Flutter Webを使って作成しました。現在閲覧中のウェブサイトです。";
 const portfolioGithub           = null;
 const portfolioAppStore         = null;
