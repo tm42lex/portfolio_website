@@ -40,12 +40,12 @@ const comingSoon            = "Coming Soon ...";
 
 ///URLS :
 const emailAddress          =  "tmiyake42lex@gmail.com";
-const githubURL             =  "https://www.google.com/";
+const githubURL             =  "https://github.com/tm42lex/";
 
 ///PORTFOLIO :
 const portfolioSiteTitle        = "ポートフォリオ";
 const portfolioSiteImagePath    = "images/portfolio_thumbnail.png";
 const portfolioSiteDescription  = "Flutter Webを使って作成しました。現在閲覧中のウェブサイトです。";
-const portfolioGithub           = null;
+const portfolioGithub           = "https://github.com/tm42lex/portfolio_website";
 const portfolioAppStore         = null;
 const portfolioGooglePlay       = null;
