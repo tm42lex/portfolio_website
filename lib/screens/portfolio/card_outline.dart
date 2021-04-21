@@ -35,7 +35,7 @@ class CardOutline extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(width: width / 2 / 15,),
-              CardThumbnail(imagePath: imagePath, isSmallScreen : isSmallScreen),
+              CardThumbnail(imagePath: imagePath, ),
               SizedBox(width: width / 2 / 15,),
               CardText(
                 theme: theme,

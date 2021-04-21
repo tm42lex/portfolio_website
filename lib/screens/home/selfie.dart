@@ -11,7 +11,7 @@ class SelfieContainer extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         image: DecorationImage(
-          image: AssetImage("assets/selfie.jpg"),
+          image: AssetImage("images/selfie.jpg"),
           alignment: Alignment.center,
           fit: BoxFit.cover,
         ),
