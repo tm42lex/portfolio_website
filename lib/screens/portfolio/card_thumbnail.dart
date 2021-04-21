@@ -9,7 +9,7 @@ class CardThumbnail extends StatelessWidget {
    return  Container(
       height:   150,
       width:   150,
-      child : CircleAvatar(radius: 20, backgroundImage: NetworkImage('assets/images/selfie.jpg')),
+      child : CircleAvatar(radius: 20, backgroundImage: NetworkImage('assets/$imagePath')),
     );
   }
 }
