@@ -9,8 +9,6 @@ class SelfieContainer extends StatelessWidget {
       height: 270,
       width: 270,
       decoration: BoxDecoration(
-        backgroundBlendMode: BlendMode.luminosity,
-        color: Colors.deepOrange,
         shape: BoxShape.circle,
         image: DecorationImage(
           image: AssetImage("assets/selfie.jpg"),
