@@ -10,15 +10,14 @@ class CardThumbnail extends StatelessWidget {
    return  Container(
       height:   150,
       width:   150,
-      child: Image.network(imagePath),
-      // decoration: BoxDecoration(
-      //   shape: BoxShape.circle,
-      //   image: DecorationImage(
-      //     image: AssetImage(imagePath),
-      //     alignment: Alignment.center,
-      //     fit: BoxFit.cover,
-      //   ),
-      // ),
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        image: DecorationImage(
+          image: AssetImage(imagePath),
+          alignment: Alignment.center,
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 }
