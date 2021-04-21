@@ -8,7 +8,7 @@ class SelfieContainer extends StatelessWidget {
     return Container(
       height: 270,
       width: 270,
-      child: ClipOval(child: Image.network('assets/images/selfie.jpg')),
+      child: CircleAvatar(radius: 20, backgroundImage: NetworkImage('assets/images/selfie.jpg')),
       // decoration: BoxDecoration(
       //   shape: BoxShape.circle,
       //   image: DecorationImage(
