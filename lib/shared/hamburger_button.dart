@@ -32,6 +32,8 @@ class _HamburgerButton extends State<HamburgerButton> with SingleTickerProviderS
   @override
   Widget build(BuildContext context) {
    return Container(
+     height: 30,
+     width:  30,
      margin: const EdgeInsets.all(5),
      decoration: BoxDecoration(
        border : Border.all(
