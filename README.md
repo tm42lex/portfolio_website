@@ -1,16 +1,15 @@
-# portfolio_website
+#My Portfolio Website
+自分のポートフォリオサイトのコードです。
+(<https://portfoliowebsite-63fbf.web.app/#/>)
+Flutter Webを用い、Firebase Hostingでページを公開しています。
+ダークモードにも対応しています。
 
-A new Flutter application.
+#スクリーンショット
+![screenshot_home](https://user-images.githubusercontent.com/65938329/115726004-4bc0b900-a3bd-11eb-9b51-b998d2e430ed.png)
+![screenshot_profile](https://user-images.githubusercontent.com/65938329/115726104-63983d00-a3bd-11eb-9e16-9bc999a2b0e6.png)
 
-## Getting Started
+＃使用技術
+Flutter Web
+Firebase Hosting
+Github Actions
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

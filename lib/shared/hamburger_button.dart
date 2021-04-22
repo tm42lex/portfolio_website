@@ -9,6 +9,7 @@ class HamburgerButton extends   StatefulWidget {
   @required final ThemeData themeData;
   HamburgerButton({this.themeData, Key key}) : super(key : key);
 
+  @override
   _HamburgerButton createState()=> _HamburgerButton();
 }
 
@@ -52,6 +53,7 @@ class _HamburgerButton extends State<HamburgerButton> with SingleTickerProviderS
                  color:          widget.themeData.backgroundColor,
                  child:Icon(
                      FontAwesomeIcons.bars,
+                     size: 25,
                      color: widget.themeData.canvasColor,
                    ),
                  onPressed: () {
