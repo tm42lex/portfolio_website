@@ -12,19 +12,20 @@ class WindowDisplaySwitch extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final palette = useProvider(darkLightThemeProvider);
-    final currentWindowHome = useProvider(homeWindowStateProvider);
+    final theme              = useProvider(darkLightThemeProvider);
+    final currentWindowHome  = useProvider(homeWindowStateProvider);
     return Container(
       child: Row(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _SwitchItem(
-            theme:        palette,
+            theme:        theme,
             currentType:  currentWindowHome,
             type:         HomeWindowStateType.home,
           ),
           _SwitchItem(
-            theme:        palette,
+            theme:        theme,
             currentType:  currentWindowHome,
             type:         HomeWindowStateType.profile,
           ),
@@ -43,17 +44,17 @@ class _SwitchItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool  enabled       = (type == currentType);
-    final Color primaryColor  = (enabled) ? theme.canvasColor    : theme.backgroundColor;
-    final Color textColor     = (enabled) ? theme.backgroundColor : theme.canvasColor;
+    final Color primaryColor  = theme.colorScheme.primary;
+    final Color textColor     = theme.colorScheme.onPrimary;
     return Container(
-      width: 100,
+      width: 150,
       height: 40,
       decoration: BoxDecoration(
         color: (enabled) ? primaryColor : textColor,
-        border: Border.all(color : theme.canvasColor, width : 1),
+        shape: BoxShape.rectangle,
       ),
       child: MaterialButton(
-        color: primaryColor,
+        color: (enabled) ? primaryColor : textColor,
         elevation: 0,
         highlightColor: Colors.transparent,
         focusColor: Colors.transparent,
@@ -65,9 +66,13 @@ class _SwitchItem extends StatelessWidget {
             conv.homeWindowStateTypeToString(type),
             style: GoogleFonts.roboto(
               fontSize: 18,
-              color: textColor,
+              color:  (enabled) ? textColor : primaryColor,
               decoration: TextDecoration.none,
               fontWeight: FontWeight.w400,
+            ).copyWith(
+              fontFamilyFallback: [
+                'NotoSansJP',
+              ],
             ),
           ),
         ),

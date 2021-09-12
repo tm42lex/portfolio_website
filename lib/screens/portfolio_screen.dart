@@ -6,7 +6,6 @@ import 'package:portfolio_website/screens/portfolio/card_outline.dart';
 import 'package:portfolio_website/services/navigation_state/portfolio_window_state/portfolio_window_state.dart';
 import 'package:portfolio_website/services/provider.dart';
 import 'package:portfolio_website/paragraph.dart' as paragraph;
-import 'package:portfolio_website/shared/section_title.dart';
 import 'package:portfolio_website/responsive_breakpoints.dart' as rb;
 import 'portfolio/portfolio_swicth.dart';
 import 'package:portfolio_website/services/navigation_state/enums.dart';
@@ -27,6 +26,7 @@ class PortfolioScreen extends HookWidget {
     return Container(
       width:  width,
       height: height,
+      color: theme.colorScheme.background,
       child: Column(
         mainAxisAlignment:  MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,

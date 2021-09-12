@@ -19,17 +19,25 @@ class WelcomeCp extends StatelessWidget {
              paragraph.welcome,
             style: GoogleFonts.sourceSansPro(
               fontSize:   60,
-              color:      theme.accentColor,
+              color:      theme.colorScheme.primary,
               decoration: TextDecoration.none,
               fontWeight: FontWeight.w600,
+            ).copyWith(
+              fontFamilyFallback: [
+                'NotoSansJP',
+              ],
             ),
          ),
          SelectableText(
              paragraph.welcomeIntro,
            style:  GoogleFonts.sourceSansPro(
              fontSize: 90,
-             color:    theme.primaryColor,
+             color:    theme.colorScheme.onBackground,
              fontWeight: FontWeight.w600,
+           ).copyWith(
+             fontFamilyFallback: [
+               'NotoSansJP',
+             ],
            ),
          )
        ],

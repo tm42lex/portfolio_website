@@ -17,8 +17,6 @@ class SunMoonIcons extends HookWidget {
     final sunOpacity      = (darkLightState == DarkLightMode.light)  ? 1.0 : 0 ;
     final moonOpacity     = (darkLightState == DarkLightMode.dark)   ? 1.0 : 0 ;
     return Container(
-      // width: 100,
-      // height: 200,
       padding: const EdgeInsets.all(5),
       margin:  const EdgeInsets.only(top : 10, right: 20),
       child: Stack(

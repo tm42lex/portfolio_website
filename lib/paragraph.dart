@@ -32,7 +32,7 @@ Flutter, Firebase, Git, Docker。
 """;
 
 ///TOOLTIP MESSAGES :
-const emailIconMessage      = "emailを送信する";
+const emailIconMessage      = "emailアドレスをコピーする";
 const githubIconMessage     = "githubページに遷移する";
 const googlePlayIconMessage = "Google Playページに遷移する";
 const appStoreIconMessage   = "App Storeページに遷移する";

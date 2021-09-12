@@ -18,17 +18,25 @@ class WelcomeTB extends StatelessWidget {
             paragraph.welcome,
             style: GoogleFonts.sourceSansPro(
               fontSize:   50,
-              color:      theme.accentColor,
+              color:      theme.colorScheme.primary,
               decoration: TextDecoration.none,
               fontWeight: FontWeight.w600,
+            ).copyWith(
+              fontFamilyFallback: [
+                'NotoSansJP',
+              ],
             ),
           ),
           SelectableText(
             paragraph.welcomeIntro,
             style:  GoogleFonts.sourceSansPro(
               fontSize: 70,
-              color:    theme.primaryColor,
+              color:    theme.colorScheme.onBackground,
               fontWeight: FontWeight.w600,
+            ).copyWith(
+              fontFamilyFallback: [
+                'NotoSansJP',
+              ],
             ),
           )
         ],

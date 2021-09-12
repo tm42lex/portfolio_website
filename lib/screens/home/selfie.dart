@@ -8,15 +8,10 @@ class SelfieContainer extends StatelessWidget {
     return Container(
       height: 270,
       width: 270,
-      child: CircleAvatar(radius: 20, backgroundImage: NetworkImage('assets/images/selfie.jpg')),
-      // decoration: BoxDecoration(
-      //   shape: BoxShape.circle,
-      //   image: DecorationImage(
-      //     image: AssetImage("images/selfie.jpg"),
-      //     alignment: Alignment.center,
-      //     fit: BoxFit.cover,
-      //   ),
-      // ),
+      child: CircleAvatar(
+          radius: 20,
+          backgroundImage: NetworkImage('assets/images/selfie.jpg')
+      ),
     );
   }
 }

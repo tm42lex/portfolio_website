@@ -6,8 +6,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'dart:math' as math;
 
 class HamburgerButton extends   StatefulWidget {
-  @required final ThemeData themeData;
-  HamburgerButton({this.themeData, Key key}) : super(key : key);
+  @required final ThemeData theme;
+  HamburgerButton({this.theme, Key key}) : super(key : key);
 
   @override
   _HamburgerButton createState()=> _HamburgerButton();
@@ -37,7 +37,7 @@ class _HamburgerButton extends State<HamburgerButton> with SingleTickerProviderS
      margin: const EdgeInsets.all(5),
      decoration: BoxDecoration(
        border : Border.all(
-         color: widget.themeData.canvasColor,
+         color: widget.theme.colorScheme.primary,
        ),
      ),
      child: Center(
@@ -52,11 +52,10 @@ class _HamburgerButton extends State<HamburgerButton> with SingleTickerProviderS
                  focusColor:     Colors.transparent,
                  hoverColor:     Colors.transparent,
                  splashColor:    Colors.transparent,
-                 color:          widget.themeData.backgroundColor,
                  child:Icon(
                      FontAwesomeIcons.bars,
-                     size: 25,
-                     color: widget.themeData.canvasColor,
+                     size: 20,
+                     color: widget.theme.colorScheme.primary,
                    ),
                  onPressed: () {
                    if (! _controller.isAnimating) {

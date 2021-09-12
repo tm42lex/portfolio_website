@@ -13,13 +13,14 @@ class WindowDisplaySwitch extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final palette = useProvider(darkLightThemeProvider);
+    final theme = useProvider(darkLightThemeProvider);
     return Container(
       child: Row(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _SwitchItem(
-            theme:        palette,
+            theme:        theme,
             type:         PortfolioWindowStateType.portfolio,
           ),
         ],
@@ -35,14 +36,14 @@ class _SwitchItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color primaryColor  = theme.canvasColor ;
-    final Color textColor     = theme.backgroundColor;
+    final Color primaryColor  = theme.colorScheme.primary;
+    final Color textColor     = theme.colorScheme.onPrimary;
     return Container(
-      width: 100,
+      width: 150,
       height: 40,
       decoration: BoxDecoration(
-        color:  primaryColor ,
-        border: Border.all(color : theme.canvasColor, width : 1),
+        color: primaryColor,
+        shape: BoxShape.rectangle,
       ),
       child: MaterialButton(
         color: primaryColor,
@@ -60,6 +61,10 @@ class _SwitchItem extends StatelessWidget {
               color: textColor,
               decoration: TextDecoration.none,
               fontWeight: FontWeight.w400,
+            ).copyWith(
+              fontFamilyFallback: [
+                'NotoSansJP',
+              ],
             ),
           ),
         ),

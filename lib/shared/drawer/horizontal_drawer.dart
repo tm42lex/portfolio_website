@@ -14,7 +14,7 @@ class HorizontalDrawer extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final palette           = useProvider(darkLightThemeProvider);
+    final theme             = useProvider(darkLightThemeProvider);
     final opacity           = useProvider(drawerOpacityStateProvider);
     final currentPage       = useProvider(screenStateProvider);
     final pageNumber        = ScreenStateType.values.length;
@@ -28,13 +28,14 @@ class HorizontalDrawer extends HookWidget {
       child: Container(
         height: 60,
         width:  width,
+        color: theme.colorScheme.background,
         child: SingleChildScrollView(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Spacer(),
               DrawerItem(
-                theme:        palette,
+                theme:        theme,
                 type:         ScreenStateType.home,
                 enabled:      enabled,
                 currentType:  currentPage,
@@ -42,7 +43,7 @@ class HorizontalDrawer extends HookWidget {
               ),
               SizedBox(width: width / pageNumber / 6,),
               DrawerItem(
-                theme:        palette,
+                theme:        theme,
                 type:         ScreenStateType.portfolio,
                 enabled:      enabled,
                 currentType:  currentPage,

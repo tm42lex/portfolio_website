@@ -1,6 +1,8 @@
+import 'dart:html' as html;
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_website/paragraph.dart' as paragraph;
 import 'package:portfolio_website/responsive_breakpoints.dart' as rb;
 
@@ -40,7 +42,7 @@ class _IconOverlay extends State<IconOverlay>  {
     var width         = MediaQuery.of(context).size.width;
     var isSmallScreen = (rb.isSmartphoneWidth(width) || rb.isTabletWidth_Small(width));
     return Material(
-      color: widget.theme.backgroundColor.withOpacity(screenOpacity),
+      color: widget.theme.colorScheme.onBackground.withOpacity(screenOpacity),
       child: InkWell(
         onTap: () {
           setState(() {
@@ -75,21 +77,24 @@ class _IconOverlay extends State<IconOverlay>  {
               children: [
                 _Icon(
                   iconData:   FontAwesomeIcons.github,
-                  iconColor:  enableGithub ? widget.theme.canvasColor : widget.theme.canvasColor.withOpacity(.2),
+                  iconColor:  enableGithub ? widget.theme.colorScheme.background : widget.theme.colorScheme.background.withOpacity(.2),
                   url:        widget.githubUrl,
                   message:    enableGithub ? paragraph.githubIconMessage : paragraph.comingSoon,
+                  theme:      widget.theme,
                 ),
                 _Icon(
                   iconData:   FontAwesomeIcons.appStore,
-                  iconColor:  enableAppStore ? widget.theme.canvasColor : widget.theme.canvasColor.withOpacity(.2),
+                  iconColor:  enableAppStore ? widget.theme.colorScheme.background : widget.theme.colorScheme.background.withOpacity(.2),
                   url:        widget.appStoreUrl,
                   message:    enableAppStore ? paragraph.appStoreIconMessage : paragraph.comingSoon,
+                  theme:      widget.theme,
                 ),
                 _Icon(
                   iconData:   FontAwesomeIcons.googlePlay,
-                  iconColor:  enableGooglePlay ? widget.theme.canvasColor : widget.theme.canvasColor.withOpacity(.2),
+                  iconColor:  enableGooglePlay ? widget.theme.colorScheme.background : widget.theme.colorScheme.background.withOpacity(.2),
                   url:        widget.googlePlayUrl,
-                  message:    enableGooglePlay ? paragraph.googlePlayIconMessage : paragraph.comingSoon,
+                  message  :  enableGooglePlay ? paragraph.googlePlayIconMessage : paragraph.comingSoon,
+                  theme:      widget.theme,
                 ),
               ],
             ),
@@ -97,20 +102,33 @@ class _IconOverlay extends State<IconOverlay>  {
         ),
       ),
     );
-  }
-}
+  }}
 
 class _Icon extends StatelessWidget {
-  @required final IconData iconData;
-  @required final Color    iconColor;
-  @required final String   url;
-  @required final String   message;
-  const _Icon({this.iconData, this.url, this.iconColor, this.message,  Key key}) : super(key : key);
+  @required final IconData    iconData;
+  @required final Color       iconColor;
+  @required final ThemeData   theme;
+  @required final String      url;
+  @required final String      message;
+  const _Icon({this.iconData, this.url, this.iconColor, this.theme, this.message,  Key key}) : super(key : key);
 
   @override
   Widget build(BuildContext context) {
     return  Tooltip(
       message: message,
+      decoration: BoxDecoration(
+        color: theme.colorScheme.background,
+      ),
+      textStyle : GoogleFonts.sourceSansPro(
+        fontSize:   10,
+        color:      theme.colorScheme.onBackground,
+        decoration: TextDecoration.none,
+        fontWeight: FontWeight.w400,
+      ).copyWith(
+        fontFamilyFallback: [
+          'NotoSansJP',
+        ],
+      ),
       child: Container(
         decoration: BoxDecoration(
           shape:   BoxShape.circle,
@@ -124,7 +142,7 @@ class _Icon extends StatelessWidget {
           ),
           iconSize: 45,
           onPressed: () async{
-              await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
+            html.window.open(url, 'new tab');
           },
         ),
       ),

@@ -28,7 +28,7 @@ class CardOutline extends StatelessWidget {
           width:  (isSmallScreen) ? width * 0.8 : width * 0.6,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(7),
-            border: Border.all(width: 1, color: theme.accentColor),
+            border: Border.all(width: 1, color: theme.colorScheme.secondary),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -52,7 +52,6 @@ class CardOutline extends StatelessWidget {
           margin: (isSmallScreen) ? const EdgeInsets.only(left: 0) : const EdgeInsets.only(left: 200),
           child: IconOverlay(
             appStoreUrl:    appStoreUrl,
-            // githubUrl:      githubUrl,
             githubUrl:      githubUrl,
             googlePlayUrl:  googlePlayUrl,
             theme:          theme,

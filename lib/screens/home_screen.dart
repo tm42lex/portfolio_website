@@ -5,7 +5,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:portfolio_website/screens/home/home.dart';
 import 'package:portfolio_website/screens/home/profile_section.dart';
 import 'package:portfolio_website/services/provider.dart';
-import 'package:portfolio_website/responsive_breakpoints.dart' as rb;
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key  key}) : super(key : key);
@@ -49,7 +48,7 @@ class _HomeScreenChild extends HookWidget{
     final ThemeData theme        = useProvider(darkLightThemeProvider);
 
     final List<Widget> _pages = [
-      HomeHomeScreen(theme: theme,),
+      IndexPageScreen(theme: theme,),
       ProfileSection(theme: theme,),
     ];
 

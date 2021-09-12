@@ -23,7 +23,7 @@ class CardText extends StatelessWidget {
             title,
             style: TextStyle(
               fontSize:   (isSmallFont) ? 20 : 30,
-              color:      theme.primaryColor,
+              color:      theme.colorScheme.primary,
               decoration: TextDecoration.none,
               fontWeight: (isSmallFont) ? FontWeight.w300 : FontWeight.w400,
             ),
@@ -34,7 +34,7 @@ class CardText extends StatelessWidget {
               introSentence,
               style: TextStyle(
                 fontSize:   (isSmallFont) ? 15 : 20,
-                color:      theme.canvasColor,
+                color:      theme.colorScheme.onBackground,
                 decoration: TextDecoration.none,
                 fontWeight: (isSmallFont) ? FontWeight.w200 : FontWeight.w300,
               ),

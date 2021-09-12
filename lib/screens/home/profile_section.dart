@@ -33,8 +33,8 @@ class ProfileSection extends StatelessWidget {
               width:  isSmallScreen ? width * 0.8 : width * 0.5,
               padding:  isSmallScreen ? const EdgeInsets.all(20) : const EdgeInsets.all(50),
               decoration: BoxDecoration(
-                color: theme.backgroundColor,
-                border: Border.all(width: 1, color: theme.accentColor),
+                color: theme.colorScheme.background,
+                border: Border.all(width: 1, color: theme.colorScheme.secondary),
                 borderRadius: BorderRadius.circular(5),
               ),
               child: Column(
@@ -84,7 +84,7 @@ class _ProfileTitle extends StatelessWidget {
       title,
       style: GoogleFonts.sourceSansPro(
         fontSize:   (isSmallFont) ? 40 : 60,
-        color:      theme.accentColor,
+        color:      theme.colorScheme.primary,
         decoration: TextDecoration.underline,
         fontWeight: (isSmallFont) ? FontWeight.w400 : FontWeight.w600,
       ),
@@ -102,11 +102,15 @@ class _ProfileParagraph extends StatelessWidget {
   Widget build(BuildContext context) {
     return SelectableText(
       content,
-      style: GoogleFonts.sawarabiMincho(
-        fontSize:   (isSmallFont) ? 20 : 20,
-        color:      theme.canvasColor,
+      style: GoogleFonts.sourceSansPro(
+        fontSize:   20,
+        color:      theme.colorScheme.onBackground,
         decoration: TextDecoration.none,
         fontWeight: (isSmallFont) ? FontWeight.w300 : FontWeight.w400,
+      ).copyWith(
+        fontFamilyFallback: [
+          'NotoSansJP',
+        ],
       ),
     );
   }

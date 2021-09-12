@@ -1,7 +1,9 @@
 import 'dart:core';
+import 'dart:html' as html;
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_website/paragraph.dart' as paragraph;
 
 class SNSIcons extends StatelessWidget {
@@ -32,12 +34,9 @@ class SNSIcons extends StatelessWidget {
      ),
    );
   }
-  void _sendEmail() {
-    final Uri _emailLaunchUri = Uri(
-        scheme: 'mailto',
-        path:   paragraph.emailAddress,
-    );
-    launch(_emailLaunchUri.toString());
+  Future<void> _sendEmail() async{
+    final data = ClipboardData(text: paragraph.emailAddress);
+    await Clipboard.setData(data);
   }
 
   void _moveToGitHub() {
@@ -46,7 +45,7 @@ class SNSIcons extends StatelessWidget {
   }
 
   void _launchURL(String _url) async{
-    await canLaunch(_url) ? await launch(_url) : throw 'Could not launch $_url';
+    html.window.open(_url, 'new tab');
   }
 }
 
@@ -61,8 +60,21 @@ class _SNSIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Tooltip(
       message: message,
+      decoration: BoxDecoration(
+        color: theme.colorScheme.secondary,
+      ),
+      textStyle: GoogleFonts.sourceSansPro(
+        fontSize:   10,
+        color:      theme.colorScheme.onSecondary,
+        decoration: TextDecoration.none,
+        fontWeight: FontWeight.w400,
+      ).copyWith(
+        fontFamilyFallback: [
+          'NotoSansJP',
+        ],
+      ),
       child: IconButton(
-        icon: Icon(icon, color: theme.accentColor.withOpacity(.75), size: 42,),
+        icon: Icon(icon, color: theme.colorScheme.secondary, size: 42,),
         iconSize: 42,
         onPressed: () {
           onPressedAction();

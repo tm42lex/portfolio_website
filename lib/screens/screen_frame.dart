@@ -59,7 +59,7 @@ class _ScreenFrameChild extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final palette     = useProvider(darkLightThemeProvider);
+    final theme     = useProvider(darkLightThemeProvider);
     final _pageIndex   = useProvider(screenStateProvider).index;
     var   width       = MediaQuery.of(context).size.width;
     var   height      = MediaQuery.of(context).size.height;
@@ -83,8 +83,8 @@ class _ScreenFrameChild extends HookWidget {
     return Scaffold(
       appBar: AppBar(
         elevation:       0.0,
-        backgroundColor: palette.backgroundColor,
-        leading: HamburgerButton(themeData: palette,),
+        backgroundColor: theme.colorScheme.background,
+        leading: HamburgerButton(theme: theme,),
         actions: [
           SunMoonIcons(),
         ],
@@ -93,7 +93,7 @@ class _ScreenFrameChild extends HookWidget {
         builder: (context) {
           if (rb.isComputerWidth(width) || rb.isTabletWidth(width) || rb.isTabletWidth_Small(width)) {
             return Container(
-              color: palette.backgroundColor,
+              color: theme.colorScheme.background,
               height: height,
               width: width,
               child: Stack(
@@ -105,7 +105,7 @@ class _ScreenFrameChild extends HookWidget {
             );
           } else {
             return Container(
-              color: palette.backgroundColor,
+              color: theme.colorScheme.background,
               child: Stack(
                 children: [
                   pageViewBuilder,

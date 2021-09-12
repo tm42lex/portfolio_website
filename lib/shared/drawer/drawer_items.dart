@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/rendering.dart';
 import 'package:portfolio_website/services/navigation_state/enums.dart';
 import 'package:portfolio_website/services/conversions.dart' as conv;
-import 'package:portfolio_website/services/navigation_state/home_window_state/home_profile_navigation_state.dart';
 import 'package:portfolio_website/services/provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -17,28 +16,24 @@ class DrawerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final primaryColor = (currentType == type) ? theme.primaryColor : theme.backgroundColor;
-    final accentColor  = (currentType == type) ? theme.backgroundColor : theme.primaryColor;
-
-    if (subDrawer == null) {
-      return Container(
-        margin: const EdgeInsets.only(bottom: 10),
-        child:  Row(
-          children: [
-            SizedBox(width: 20,),
-            Container(
+    return Container(
+      child:Column(
+        mainAxisSize: MainAxisSize.min,
+        children : [
+          Row(
+            children: [
+              SizedBox(width: 20,),
+              Container(
                 padding: const EdgeInsets.only(left: 20, right: 20, top: 6, bottom: 6),
                 decoration: BoxDecoration(
                   gradient : LinearGradient(
                     begin: FractionalOffset.topLeft,
                     end: FractionalOffset.bottomRight,
                     colors: [
-                      (type == currentType) ? theme.primaryColor.withOpacity(1) : theme.backgroundColor,
-                      (type == currentType) ? theme.buttonColor.withOpacity(1) : theme.backgroundColor,
-
+                      theme.colorScheme.primary,
+                      HSLColor.fromColor(theme.colorScheme.primary).withLightness(.8).toColor(),
                     ],
                   ),
-                  border: Border.all(color: accentColor),
                   borderRadius: BorderRadius.circular(42),
                 ),
                 child: MaterialButton(
@@ -52,9 +47,13 @@ class DrawerItem extends StatelessWidget {
                       conv.screenStateTypeToString(type),
                       style: GoogleFonts.roboto(
                         fontSize: 18,
-                        color: accentColor.withOpacity(1),
+                        color: theme.colorScheme.onPrimary,
                         decoration: TextDecoration.none,
                         fontWeight: FontWeight.w400,
+                      ).copyWith(
+                        fontFamilyFallback: [
+                          'NotoSansJP',
+                        ],
                       ),
                     ),
                   ),
@@ -66,64 +65,14 @@ class DrawerItem extends StatelessWidget {
                   },
                 ),
               ),
-          ],
-        ),
-      );
-    } else {
-      return Container(
-        child:Column(
-          mainAxisSize: MainAxisSize.min,
-          children : [
-            Row(
-              children: [
-                SizedBox(width: 20,),
-                Container(
-                  padding: const EdgeInsets.only(left: 20, right: 20, top: 6, bottom: 6),
-                  decoration: BoxDecoration(
-                    gradient : LinearGradient(
-                      begin: FractionalOffset.topLeft,
-                      end: FractionalOffset.bottomRight,
-                      colors: [
-                        (type == currentType) ? theme.primaryColor.withOpacity(1) : theme.backgroundColor,
-                        (type == currentType) ? theme.buttonColor.withOpacity(1)  : theme.backgroundColor,
-
-                      ],
-                    ),
-                    border: Border.all(color: accentColor),
-                    borderRadius: BorderRadius.circular(42),
-                  ),
-                  child: MaterialButton(
-                    highlightColor: Colors.transparent,
-                    focusColor:     Colors.transparent,
-                    hoverColor:     Colors.transparent,
-                    splashColor:    Colors.transparent,
-                    child: MouseRegion(
-                      cursor: (enabled) ? SystemMouseCursors.click : SystemMouseCursors.basic,
-                      child: Text(
-                        conv.screenStateTypeToString(type),
-                        style: GoogleFonts.roboto(
-                          fontSize: 18,
-                          color: accentColor,
-                          decoration: TextDecoration.none,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ),
-                    onPressed: () {
-                      if(enabled) {
-                        context.read(screenStateNavigationModeProvider).jumpToType(type);
-                        context.read(homeWindowStateNavigationModeProvider).resetToInitPage();
-                      }
-                    },
-                  ),
-                ),
-              ],
-            ),
+            ],
+          ),
+          if (subDrawer != null) ... [
             subDrawer,
-          ],
-        ),
-      );
-    }
+          ]
+        ],
+      ),
+    );
   }
 }
 
@@ -138,8 +87,6 @@ class SubDrawerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final primaryColor = (currentType == type) ? theme.buttonColor : theme.backgroundColor;
-    final accentColor = (currentType == type) ? theme.backgroundColor : theme.buttonColor;
     return Container(
       margin: const EdgeInsets.only(top: 12, bottom: 12),
       child: Row(
@@ -148,9 +95,15 @@ class SubDrawerItem extends StatelessWidget {
           Container(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 6, bottom: 6),
             decoration: BoxDecoration(
-              color: primaryColor,
+              gradient : LinearGradient(
+                begin: FractionalOffset.topLeft,
+                end: FractionalOffset.bottomRight,
+                colors: [
+                  theme.colorScheme.secondary,
+                  HSLColor.fromColor(theme.colorScheme.secondary).withLightness(.8).toColor(),
+                ],
+              ),
               borderRadius: BorderRadius.circular(42),
-              border: Border.all(width: 1, color: accentColor),
             ),
             child: MaterialButton(
               highlightColor: Colors.transparent,
@@ -163,9 +116,13 @@ class SubDrawerItem extends StatelessWidget {
                   conv.subWindowStateTypeToString(type, subWindowType),
                   style: GoogleFonts.roboto(
                     fontSize: 18,
-                    color: accentColor,
+                    color: theme.colorScheme.onSecondary,
                     decoration: TextDecoration.none,
                     fontWeight: FontWeight.w400,
+                  ).copyWith(
+                    fontFamilyFallback: [
+                      'NotoSansJP',
+                    ],
                   ),
                 ),
               ),

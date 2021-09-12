@@ -7,28 +7,29 @@ import 'package:portfolio_website/screens/home/selfie.dart';
 import 'package:portfolio_website/screens/home/sns_icons.dart';
 import 'package:portfolio_website/screens/home/welcome_title/_welcome_title.dart';
 
-class HomeHomeScreen extends HookWidget {
+class IndexPageScreen extends HookWidget {
   @required final ThemeData theme;
-  HomeHomeScreen({this.theme, Key key}) : super(key : key);
+  IndexPageScreen({this.theme, Key key}) : super(key : key);
 
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
 
     if (rb.isComputerWidth(width)) {
-      return _ChildCP( width);
+      return _screenComputerSize( width);
     } else if (rb.isTabletWidth_Big(width)) {
-      return _ChildTBLarge(width);
+      return _screenLargeTabletSize(width);
     } else if (rb.isTabletWidth_Small(width)){
-      return _ChildTBSmall(width);
+      return _screenSmallTabletSize(width);
     } else {
-      return _ChildSP(width);
+      return _screenSmartphoneSize(width);
     }
   }
 
-  Widget _ChildCP(double width) {
+  Widget _screenComputerSize(double width) {
     return Container(
       width: width,
+      color: theme.colorScheme.background,
       child: SingleChildScrollView(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -55,9 +56,10 @@ class HomeHomeScreen extends HookWidget {
     );
   }
 
-  Widget _ChildTBLarge(double width) {
+  Widget _screenLargeTabletSize(double width) {
     return Container(
       width: width,
+      color: theme.colorScheme.background,
       child: SingleChildScrollView(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -83,9 +85,10 @@ class HomeHomeScreen extends HookWidget {
       ),
     );
   }
-  Widget _ChildTBSmall(double width) {
+  Widget _screenSmallTabletSize(double width) {
     return Container(
       width: width,
+      color: theme.colorScheme.background,
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment:   MainAxisAlignment.start,
@@ -103,9 +106,10 @@ class HomeHomeScreen extends HookWidget {
     );
   }
 
-  Widget _ChildSP(double width) {
+  Widget _screenSmartphoneSize(double width) {
     return Container(
       width: width ,
+      color: theme.colorScheme.background,
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment:   MainAxisAlignment.start,
