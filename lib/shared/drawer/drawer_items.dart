@@ -18,7 +18,6 @@ class DrawerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
       child:Column(
         mainAxisSize: MainAxisSize.min,
         children : [
@@ -26,6 +25,7 @@ class DrawerItem extends StatelessWidget {
             children: [
               SizedBox(width: 20,),
               Container(
+                height: 40,
                 padding: const EdgeInsets.only(left: 20, right: 20, top: 6, bottom: 6),
                 decoration: BoxDecoration(
                   gradient : LinearGradient(
@@ -96,6 +96,7 @@ class SubDrawerItem extends StatelessWidget {
         children: [
           SizedBox(width: 40,),
           Container(
+            height: 40,
             padding: const EdgeInsets.only(left: 20, right: 20, top: 6, bottom: 6),
             decoration: BoxDecoration(
               gradient : LinearGradient(
