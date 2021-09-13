@@ -7,8 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_website/paragraph.dart' as paragraph;
 
 class SNSIcons extends StatelessWidget {
-  @required final ThemeData theme;
-  const SNSIcons({this.theme, Key key}) : super(key : key);
+  final ThemeData theme;
+  const SNSIcons({required this.theme, Key ? key}) : super(key : key);
   
   @override
   Widget build(BuildContext context) {
@@ -50,11 +50,12 @@ class SNSIcons extends StatelessWidget {
 }
 
 class _SNSIcon extends StatelessWidget {
-  @required final ThemeData theme;
-  @required final IconData  icon;
-  @required final String    message;
-  @required final Function  onPressedAction;
-  const _SNSIcon({this.theme, this.icon, this.message, this.onPressedAction, Key key}) : super(key : key);
+  final ThemeData theme;
+  final IconData  icon;
+  final String    message;
+  final Function  onPressedAction;
+  const _SNSIcon({required this.theme, required this.icon, required this.message,
+    required this.onPressedAction, Key ? key}) : super(key : key);
   
   @override
   Widget build(BuildContext context) {

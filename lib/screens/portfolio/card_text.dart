@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CardText extends StatelessWidget {
-  @required final String     title;
-  @required final String     introSentence;
-  @required final bool       isSmallFont;
-  @required final ThemeData  theme;
-  @required final double     width;
-  const CardText({this.title, this.introSentence, this.theme, this.isSmallFont,this.width,  Key  key}) : super(key : key);
+  final String     title;
+  final String     introSentence;
+  final bool       isSmallFont;
+  final ThemeData  theme;
+  final double     width;
+  const CardText({required this.title, required this.introSentence, required this.theme, required this.isSmallFont,
+    required this.width,  Key ? key}) : super(key : key);
 
   @override
   Widget build(BuildContext context) {

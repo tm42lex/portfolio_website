@@ -9,7 +9,7 @@ import 'package:portfolio_website/services/navigation_state/enums.dart';
 
 
 class WindowDisplaySwitch extends HookWidget {
-  WindowDisplaySwitch({Key key}) : super(key : key);
+  WindowDisplaySwitch({Key ? key}) : super(key : key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +30,9 @@ class WindowDisplaySwitch extends HookWidget {
 }
 
 class _SwitchItem extends StatelessWidget {
-  @required final ThemeData                    theme;
-  @required final PortfolioWindowStateType     type;
-  const _SwitchItem({this.theme, this.type,  Key key}) : super(key : key);
+  final ThemeData                    theme;
+  final PortfolioWindowStateType     type;
+  const _SwitchItem({required this.theme, required this.type,  Key ? key}) : super(key : key);
 
   @override
   Widget build(BuildContext context) {

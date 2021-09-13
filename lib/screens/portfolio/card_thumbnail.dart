@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CardThumbnail extends StatelessWidget {
-  @required final String imagePath;
-  const CardThumbnail({this.imagePath,  Key  key}) : super(key : key);
+  final String imagePath;
+  const CardThumbnail({required this.imagePath,  Key ? key}) : super(key : key);
 
   @override
   Widget build(BuildContext context) {

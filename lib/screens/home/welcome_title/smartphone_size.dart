@@ -3,8 +3,8 @@ import 'package:portfolio_website/paragraph.dart' as paragraph;
 import 'package:google_fonts/google_fonts.dart';
 
 class WelcomeSP extends StatelessWidget {
-  @required final ThemeData theme;
-  const WelcomeSP({this.theme, Key key}) : super(key : key);
+  final ThemeData theme;
+  const WelcomeSP({required this.theme, Key ? key}) : super(key : key);
 
   @override
   Widget build(BuildContext context) {

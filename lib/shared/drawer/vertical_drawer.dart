@@ -7,7 +7,7 @@ import 'package:portfolio_website/services/navigation_state/enums.dart';
 import 'drawer_items.dart';
 
 class VerticalDrawer extends HookWidget {
-  const VerticalDrawer({Key key}) : super(key : key);
+  const VerticalDrawer({Key? key}) : super(key : key);
 
   final Duration fixedDuration = const Duration(milliseconds: 420);
 

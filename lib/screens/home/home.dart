@@ -8,8 +8,8 @@ import 'package:portfolio_website/screens/home/sns_icons.dart';
 import 'package:portfolio_website/screens/home/welcome_title/_welcome_title.dart';
 
 class IndexPageScreen extends HookWidget {
-  @required final ThemeData theme;
-  IndexPageScreen({this.theme, Key key}) : super(key : key);
+  final ThemeData theme;
+  IndexPageScreen({required this.theme, Key ? key}) : super(key : key);
 
   @override
   Widget build(BuildContext context) {

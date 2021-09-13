@@ -8,15 +8,15 @@ import 'package:portfolio_website/services/navigation_state/enums.dart';
 
 class ProfileSection extends StatelessWidget {
   @required final ThemeData theme;
- const ProfileSection({this.theme, Key key}) : super(key : key);
+ const ProfileSection({required this.theme, Key ? key}) : super(key : key);
 
  @override
  Widget build(BuildContext context) {
    var width                = MediaQuery.of(context).size.width;
    var isSmallScreen        = (rb.isTabletWidth_Small(width) || rb.isSmartphoneWidth(width));
    var marginRightDistance  = (appConst.pageWindowMax - HomeWindowStateType.values.length) * 100.0;
-   var marginLeft           = (isSmallScreen) ? 0 : 270.0 + (width / 2 / 10);
-   var marginRight          = (isSmallScreen) ? 0 : marginRightDistance;
+   var marginLeft           = (isSmallScreen) ? 0.0 : 270.0 + (width / 2 / 10);
+   var marginRight          = (isSmallScreen) ? 0.0 : marginRightDistance;
    return Container(
       width: width,
       child: SingleChildScrollView(
@@ -73,10 +73,10 @@ class ProfileSection extends StatelessWidget {
 }
 
 class _ProfileTitle extends StatelessWidget {
-  @required final String    title;
-  @required final ThemeData theme;
-  @required final bool      isSmallFont;
-  _ProfileTitle({this.theme, this.title, this.isSmallFont, Key key}) : super(key : key);
+  final String    title;
+  final ThemeData theme;
+  final bool      isSmallFont;
+  _ProfileTitle({required this.theme, required this.title, required this.isSmallFont, Key ? key}) : super(key : key);
 
   @override
   Widget build(BuildContext context) {
@@ -93,10 +93,10 @@ class _ProfileTitle extends StatelessWidget {
 }
 
 class _ProfileParagraph extends StatelessWidget {
-  @required final String    content;
-  @required final ThemeData theme;
-  @required final bool      isSmallFont;
-   _ProfileParagraph({this.theme, this.content, this.isSmallFont, Key key}) : super(key : key);
+  final String    content;
+  final ThemeData theme;
+  final bool      isSmallFont;
+   _ProfileParagraph({required this.theme, required this.content, required this.isSmallFont, Key ? key}) : super(key : key);
 
   @override
   Widget build(BuildContext context) {

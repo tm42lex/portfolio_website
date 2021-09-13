@@ -7,16 +7,18 @@ import 'package:portfolio_website/services/provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class DrawerItem extends StatelessWidget {
-  @required final ThemeData       theme;
-  @required final Widget          subDrawer;
-  @required final ScreenStateType type;
-  @required final bool            enabled;
-  @required final ScreenStateType currentType;
-  const DrawerItem({this.theme, this.subDrawer, this.currentType, this.type,  this.enabled, Key key}) : super(key : key);
+   final ThemeData       theme;
+   final Widget?          subDrawer;
+   final ScreenStateType type;
+   final bool            enabled;
+   final ScreenStateType currentType;
+  const DrawerItem({required this.theme, required this.subDrawer, required this.currentType, required this.type,
+    required this.enabled, Key? key}) : super(key : key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 40,
       child:Column(
         mainAxisSize: MainAxisSize.min,
         children : [
@@ -68,7 +70,7 @@ class DrawerItem extends StatelessWidget {
             ],
           ),
           if (subDrawer != null) ... [
-            subDrawer,
+            subDrawer!,
           ]
         ],
       ),
@@ -77,13 +79,14 @@ class DrawerItem extends StatelessWidget {
 }
 
 class SubDrawerItem extends StatelessWidget {
-  @required final ThemeData theme;
-  @required final dynamic type;
-  @required final SubWindowType subWindowType;
-  @required final bool enabled;
-  @required final dynamic currentType;
+   final ThemeData theme;
+   final dynamic type;
+   final SubWindowType subWindowType;
+   final bool enabled;
+   final dynamic currentType;
 
-  const SubDrawerItem({this.theme, this.subWindowType, this.currentType, this.type, this.enabled, Key key}) : super(key: key);
+  const SubDrawerItem({required this.theme, required this.subWindowType, required this.currentType, required this.type,
+    required this.enabled, Key?key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -8,7 +8,7 @@ import 'package:portfolio_website/services/provider.dart';
 import 'package:portfolio_website/services/navigation_state/enums.dart';
 
 class WindowDisplaySwitch extends HookWidget {
-  WindowDisplaySwitch({Key key}) : super(key : key);
+  WindowDisplaySwitch({Key ? key}) : super(key : key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +36,10 @@ class WindowDisplaySwitch extends HookWidget {
 }
 
 class _SwitchItem extends StatelessWidget {
-  @required final ThemeData               theme;
-  @required final HomeWindowStateType     currentType;
-  @required final HomeWindowStateType     type;
-  const _SwitchItem({this.theme, this.type, this.currentType, Key key}) : super(key : key);
+  final ThemeData               theme;
+  final HomeWindowStateType     currentType;
+  final HomeWindowStateType     type;
+  const _SwitchItem({required this.theme, required this.type, required this.currentType, Key ? key}) : super(key : key);
 
   @override
   Widget build(BuildContext context) {

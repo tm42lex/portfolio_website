@@ -6,8 +6,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'dart:math' as math;
 
 class HamburgerButton extends   StatefulWidget {
-  @required final ThemeData theme;
-  HamburgerButton({this.theme, Key key}) : super(key : key);
+  final ThemeData theme;
+  HamburgerButton({required this.theme, Key? key}) : super(key : key);
 
   @override
   _HamburgerButton createState()=> _HamburgerButton();
@@ -15,7 +15,7 @@ class HamburgerButton extends   StatefulWidget {
 
 class _HamburgerButton extends State<HamburgerButton> with SingleTickerProviderStateMixin{
 
-  AnimationController _controller;
+  late AnimationController _controller;
   static const        fixedDuration = Duration(milliseconds: 720);
   @override
   void initState() {

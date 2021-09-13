@@ -12,7 +12,7 @@ import 'package:portfolio_website/services/navigation_state/enums.dart';
 import 'package:portfolio_website/constants.dart' as appConst;
 
 class PortfolioScreen extends HookWidget {
-  const PortfolioScreen({Key key}) : super(key : key);
+  const PortfolioScreen({Key? key}) : super(key : key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +21,8 @@ class PortfolioScreen extends HookWidget {
     final ThemeData theme        = useProvider(darkLightThemeProvider);
     var isSmallScreen            = (rb.isSmartphoneWidth(width) || rb.isTabletWidth_Small(width));
     var marginRightDistance      = (appConst.pageWindowMax - PortfolioWindowStateType.values.length) * 100.0;
-    var marginRight              = (isSmallScreen) ? 0 : marginRightDistance;
-    var marginLeft               = (isSmallScreen) ? 0 : 270.0 + (width / 2 / 10);
+    var marginRight              = (isSmallScreen) ? 0.0 : marginRightDistance;
+    var marginLeft               = (isSmallScreen) ? 0.0 : 270.0 + (width / 2 / 10);
     return Container(
       width:  width,
       height: height,

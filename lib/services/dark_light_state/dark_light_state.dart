@@ -4,9 +4,9 @@ import 'enums.dart';
 import 'package:portfolio_website/color_palette.dart' as cp;
 
 class DarkLightModeModel {
-  @required final DarkLightMode mode;
-  @required final ThemeData     theme;
-  DarkLightModeModel({this.mode, this.theme});
+  final DarkLightMode mode;
+  final ThemeData     theme;
+  DarkLightModeModel({required this.mode, required this.theme});
 }
 
 class DarkLightModeNotifier extends StateNotifier<DarkLightModeModel> {

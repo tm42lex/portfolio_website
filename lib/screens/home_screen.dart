@@ -7,7 +7,7 @@ import 'package:portfolio_website/screens/home/profile_section.dart';
 import 'package:portfolio_website/services/provider.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key  key}) : super(key : key);
+  HomeScreen({Key?key}) : super(key : key);
 
   @override
   _HomeScreen createState() => _HomeScreen();
@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreen extends State<HomeScreen> {
 
-  PageController _controller;
+  late PageController _controller;
   @override
   void initState() {
     super.initState();
@@ -35,8 +35,8 @@ class _HomeScreen extends State<HomeScreen> {
 }
 
 class _HomeScreenChild extends HookWidget{
-  @required final PageController controller;
-  _HomeScreenChild({this.controller, Key key}) : super(key : key);
+  final PageController controller;
+  _HomeScreenChild({required this.controller, Key ? key}) : super(key : key);
 
 
   @override

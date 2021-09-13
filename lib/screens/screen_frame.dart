@@ -11,7 +11,7 @@ import 'package:portfolio_website/shared/sun_moon_icon.dart';
 import 'package:portfolio_website/responsive_breakpoints.dart' as rb;
 
 class ScreenFrame extends StatefulWidget {
-  ScreenFrame({Key key}) : super(key : key);
+  ScreenFrame({Key? key}) : super(key : key);
 
 
   @override
@@ -20,8 +20,8 @@ class ScreenFrame extends StatefulWidget {
 
 class _ScreenFrame extends State<ScreenFrame> {
 
-  bool           _completedInit;
-  PageController _controller;
+  late bool           _completedInit;
+  late PageController _controller;
 
 
   @override
@@ -39,7 +39,7 @@ class _ScreenFrame extends State<ScreenFrame> {
   @override
   Widget build(BuildContext context) {
     if (!_completedInit) {
-      SchedulerBinding.instance.addPostFrameCallback((_) {
+      SchedulerBinding.instance?.addPostFrameCallback((_) {
         context.read(darkLightModeProvider).initializeUserDarkLightMode(Theme.of(context).primaryColor);
         setState(() {
           _completedInit = true;
@@ -47,15 +47,15 @@ class _ScreenFrame extends State<ScreenFrame> {
       });
     }
     if (_completedInit)
-      return _ScreenFrameChild();
+      return _ScreenFrameChild(controller: _controller,);
     else
       return Container();
   }
 }
 
 class _ScreenFrameChild extends HookWidget {
-  @required final PageController controller;
-  const _ScreenFrameChild({this.controller, Key key }) : super(key : key);
+  final PageController controller;
+  const _ScreenFrameChild({required this.controller, Key? key }) : super(key : key);
 
   @override
   Widget build(BuildContext context) {

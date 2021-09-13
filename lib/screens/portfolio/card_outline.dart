@@ -6,15 +6,15 @@ import 'package:portfolio_website/screens/portfolio/icon_overlay.dart';
 import 'package:portfolio_website/paragraph.dart' as paragraph;
 
 class CardOutline extends StatelessWidget {
-  @required final String    title;
-  @required final String    introSentence;
-  @required final String    imagePath;
-  @required final ThemeData theme;
-  @required final String    githubUrl;
-  @required final String    appStoreUrl;
-  @required final String    googlePlayUrl;
-  const CardOutline({this.title, this.introSentence, this.imagePath, this.theme,
-    this.googlePlayUrl, this.githubUrl, this.appStoreUrl ,Key key}) : super(key : key);
+  final String    title;
+  final String    introSentence;
+  final String    imagePath;
+  final ThemeData theme;
+  final String    githubUrl;
+  final String    appStoreUrl;
+  final String    googlePlayUrl;
+  const CardOutline({required this.title, required this.introSentence, required this.imagePath, required this.theme,
+    required this.googlePlayUrl, required this.githubUrl, required this.appStoreUrl ,Key ? key}) : super(key : key);
 
   @override
   Widget build(BuildContext context) {

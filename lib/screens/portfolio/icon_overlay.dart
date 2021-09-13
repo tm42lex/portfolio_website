@@ -7,11 +7,11 @@ import 'package:portfolio_website/paragraph.dart' as paragraph;
 import 'package:portfolio_website/responsive_breakpoints.dart' as rb;
 
 class IconOverlay extends StatefulWidget {
-  @required final String    githubUrl;
-  @required final String    appStoreUrl;
-  @required final String    googlePlayUrl;
+  @required final String?    githubUrl;
+  @required final String?    appStoreUrl;
+  @required final String?    googlePlayUrl;
   @required final ThemeData theme;
-  IconOverlay({this.githubUrl, this.appStoreUrl, this.googlePlayUrl, this.theme, Key key})  : super(key : key);
+  IconOverlay({required this.githubUrl, required this.appStoreUrl, required this.googlePlayUrl, required this.theme, Key? key})  : super(key : key);
 
   final Duration fixedDuration = const Duration(milliseconds: 420);
 
@@ -21,11 +21,11 @@ class IconOverlay extends StatefulWidget {
 
 class _IconOverlay extends State<IconOverlay>  {
 
-  bool    enableAppStore;
-  bool    enableGooglePlay;
-  bool    enableGithub;
-  bool    isTapping;
-  double  screenOpacity;
+  late bool    enableAppStore;
+  late bool    enableGooglePlay;
+  late bool    enableGithub;
+  late bool    isTapping;
+  late double  screenOpacity;
 
   @override
   void initState() {
@@ -108,9 +108,10 @@ class _Icon extends StatelessWidget {
   @required final IconData    iconData;
   @required final Color       iconColor;
   @required final ThemeData   theme;
-  @required final String      url;
+  @required final String?     url;
   @required final String      message;
-  const _Icon({this.iconData, this.url, this.iconColor, this.theme, this.message,  Key key}) : super(key : key);
+  const _Icon({required this.iconData, required this.url, required this.iconColor, required this.theme,
+    required this.message,  Key ? key}) : super(key : key);
 
   @override
   Widget build(BuildContext context) {
@@ -142,7 +143,9 @@ class _Icon extends StatelessWidget {
           ),
           iconSize: 45,
           onPressed: () async{
-            html.window.open(url, 'new tab');
+            if (url != null) {
+              html.window.open(url!, 'new tab');
+            }
           },
         ),
       ),
