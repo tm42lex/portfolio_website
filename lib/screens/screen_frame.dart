@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:portfolio_website/screens/home_screen.dart';
 import 'package:portfolio_website/screens/portfolio_screen.dart';
+import 'package:portfolio_website/shared/appbar_ellipsis_button.dart';
 import 'package:portfolio_website/shared/drawer/_drawer.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:portfolio_website/services/provider.dart';
@@ -59,10 +60,10 @@ class _ScreenFrameChild extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme     = useProvider(darkLightThemeProvider);
-    final _pageIndex   = useProvider(screenStateProvider).index;
-    var   width       = MediaQuery.of(context).size.width;
-    var   height      = MediaQuery.of(context).size.height;
+    final theme         = useProvider(darkLightThemeProvider);
+    final _pageIndex    = useProvider(screenStateProvider).index;
+    var   width         = MediaQuery.of(context).size.width;
+    var   height        = MediaQuery.of(context).size.height;
     final List<Widget> _pages = [
       HomeScreen(),
       PortfolioScreen(),
@@ -87,6 +88,7 @@ class _ScreenFrameChild extends HookWidget {
         leading: HamburgerButton(theme: theme,),
         actions: [
           SunMoonIcons(),
+          EllipsisButton(theme: theme),
         ],
       ),
       body: Builder(
@@ -111,7 +113,7 @@ class _ScreenFrameChild extends HookWidget {
                   pageViewBuilder,
                   Positioned(
                       bottom: 0.0,
-                      child: HorizontalDrawer()
+                      child: HorizontalNavbar()
                   ),
                 ],
               ),

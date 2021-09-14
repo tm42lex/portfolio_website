@@ -10,9 +10,9 @@ class CardOutline extends StatelessWidget {
   final String    introSentence;
   final String    imagePath;
   final ThemeData theme;
-  final String    githubUrl;
-  final String    appStoreUrl;
-  final String    googlePlayUrl;
+  final String?   githubUrl;
+  final String?   appStoreUrl;
+  final String?   googlePlayUrl;
   const CardOutline({required this.title, required this.introSentence, required this.imagePath, required this.theme,
     required this.googlePlayUrl, required this.githubUrl, required this.appStoreUrl ,Key ? key}) : super(key : key);
 

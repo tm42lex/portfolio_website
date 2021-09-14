@@ -38,6 +38,9 @@ const googlePlayIconMessage = "Google Playページに遷移する";
 const appStoreIconMessage   = "App Storeページに遷移する";
 const comingSoon            = "Coming Soon ...";
 
+///Ellipsis Popup
+const license               = "ライセンス";
+
 ///URLS :
 const emailAddress          =  "tmiyake42lex@gmail.com";
 const githubURL             =  "https://github.com/tm42lex/";

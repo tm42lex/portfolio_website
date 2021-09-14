@@ -7,8 +7,8 @@ import 'package:portfolio_website/services/navigation_state/enums.dart';
 import 'drawer_items.dart';
 
 
-class HorizontalDrawer extends HookWidget {
-  const HorizontalDrawer({Key? key}) : super(key : key);
+class HorizontalNavbar extends HookWidget {
+  const HorizontalNavbar({Key? key}) : super(key : key);
 
   final Duration fixedDuration = const Duration(milliseconds: 420);
 

@@ -27,6 +27,10 @@ class CardText extends StatelessWidget {
               color:      theme.colorScheme.primary,
               decoration: TextDecoration.none,
               fontWeight: (isSmallFont) ? FontWeight.w300 : FontWeight.w400,
+            ).copyWith(
+              fontFamilyFallback: [
+                'NotoSansJP',
+              ],
             ),
           ),
           SizedBox(height: height / 2 / 15,),
@@ -38,9 +42,11 @@ class CardText extends StatelessWidget {
                 color:      theme.colorScheme.onBackground,
                 decoration: TextDecoration.none,
                 fontWeight: (isSmallFont) ? FontWeight.w200 : FontWeight.w300,
+              ).copyWith(
+                fontFamilyFallback: [
+                  'NotoSansJP',
+                ],
               ),
-              // maxLines: 4,
-              // overflow: TextOverflow.ellipsis,
             ),
           ),
         ],
