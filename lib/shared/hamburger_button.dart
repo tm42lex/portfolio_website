@@ -54,7 +54,7 @@ class _HamburgerButton extends State<HamburgerButton> with SingleTickerProviderS
                  splashColor:    Colors.transparent,
                  child:Icon(
                      FontAwesomeIcons.bars,
-                     size: 20,
+                     size: 15,
                      color: widget.theme.colorScheme.primary,
                    ),
                  onPressed: () {
