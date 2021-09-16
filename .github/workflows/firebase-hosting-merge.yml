@@ -16,7 +16,7 @@ jobs:
         run: git clone https://github.com/flutter/flutter.git -b stable
       
       - name: Checkout Flutter to Legacy version
-        run:  cd ./flutter && git switch 2.5.0 && cd ..
+        run:  cd ./flutter && git checkout tags/2.5.0 && cd ..
 
       - name: Add path
         run: echo "$(pwd)/flutter/bin" >> $GITHUB_PATH
