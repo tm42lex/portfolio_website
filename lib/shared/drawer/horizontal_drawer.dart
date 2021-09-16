@@ -28,30 +28,28 @@ class HorizontalNavbar extends HookWidget {
       child: Container(
         height: 60,
         width:  width,
-        color: theme.colorScheme.background,
-        child: SingleChildScrollView(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Spacer(),
-              DrawerItem(
-                theme:        theme,
-                type:         ScreenStateType.home,
-                enabled:      enabled,
-                currentType:  currentPage,
-                subDrawer:    null,
-              ),
-              SizedBox(width: width / pageNumber / 6,),
-              DrawerItem(
-                theme:        theme,
-                type:         ScreenStateType.portfolio,
-                enabled:      enabled,
-                currentType:  currentPage,
-                subDrawer:    null,
-              ),
-              Spacer(),
-            ],
-          ),
+        color: Colors.transparent,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Spacer(),
+            DrawerItem(
+              theme:        theme,
+              type:         ScreenStateType.home,
+              enabled:      enabled,
+              currentType:  currentPage,
+              subDrawer:    null,
+            ),
+            SizedBox(width: width / pageNumber / 6,),
+            DrawerItem(
+              theme:        theme,
+              type:         ScreenStateType.portfolio,
+              enabled:      enabled,
+              currentType:  currentPage,
+              subDrawer:    null,
+            ),
+            Spacer(),
+          ],
         ),
       ),
     );
